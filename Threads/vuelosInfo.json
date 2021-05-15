@@ -1,0 +1,105 @@
+{
+    "Avion":[
+        {
+            "nombre":"Airbus 319",
+            "tipo":"Carga",
+            "estado":"Taxi"
+        },
+        {   
+            "nombre":"Boeing 737",
+            "tipo":"Carga",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Antonov 225 Mriya",
+            "tipo":"Carga",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Boeing 747 F Freighter",
+            "tipo":"Carga",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Airbus 300-600 ST",
+            "tipo":"Carga",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Boeing 747-400 ERF",
+            "tipo":"Carga",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"HondaJet Elite",
+            "tipo":"Privado",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Cessna Citation CJ2",
+            "tipo":"Privado",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Embraer Phenom 300",
+            "tipo":"Privado",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Gulfstream G150",
+            "tipo":"Privado",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Cessna Citation Sovereign",
+            "tipo":"Privado",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Bombardier Challenger 605",
+            "tipo":"Privado",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Airbus ACJ320",
+            "tipo":"Privado",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Boeing 777",
+            "tipo":"Pasajero",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Airbus A220",
+            "tipo":"Pasajero",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Boeing 787 Dreamliner",
+            "tipo":"Pasajero",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Comac C919",
+            "tipo":"Pasajero",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Mitsubishi SpaceJet",
+            "tipo":"Pasajero",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Ilyushin II-96",
+            "tipo":"Pasajero",
+            "estado":"Taxi"
+        },
+        {
+            "nombre":"Airbus A350 XWB",
+            "tipo":"Pasajero",
+            "estado":"Taxi"
+        }
+
+    ]
+}
