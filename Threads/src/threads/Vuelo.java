@@ -13,6 +13,8 @@ public class Vuelo {
     private String nombre;
     private String estado;
     private String tipo;
+    private Puerta puerta;
+    private Pista pista; 
     
     public Vuelo(String pNombre,String pEstado, String pTipo){
         this.nombre=pNombre;
