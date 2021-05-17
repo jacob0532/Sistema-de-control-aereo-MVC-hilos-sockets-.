@@ -10,7 +10,11 @@ package threads;
  * @author Meih55
  */
 public class Threads{
-
+    private Aeropuerto aeropuerto=new Aeropuerto();
+    
+    public Threads(){
+        Json.leerJSON(aeropuerto);
+    }
     /**
      * @param args the command line arguments
      */
@@ -20,9 +24,19 @@ public class Threads{
 //            Thread obj= new Thread(new thread());
 //            obj.start();
 //        }
-        Json json = new Json();
-        json.leerJSON();
+        Threads thread=new Threads();
+        thread.aeropuerto.printVuelos();
+        System.out.println("-------------------------------------------------------------------------\n");
+        thread.aeropuerto.initPistas();
+        thread.aeropuerto.initPuertas();
+        thread.aeropuerto.printPistas();
+        System.out.println("-------------------------------------------------------------------------\n");
+        thread.aeropuerto.printPuertas();
+        System.out.println("-------------------------------------------------------------------------\n");
+        
     }
+    
+
 
     
 }
