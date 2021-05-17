@@ -24,3 +24,10 @@ hs_err_pid*
 /Threads/nbproject/private/
 /Threads/build/
 /Threads/dist/
+/Ejemplo sockets/Sockets/dist/
+/Sistema de Control de Vuelos/Server/nbproject/private/
+/Sistema de Control de Vuelos/Server/build/
+/Sistema de Control de Vuelos/Controlador/build/
+/Sistema de Control de Vuelos/BD vuelos/build/
+/Sistema de Control de Vuelos/Informacion/build/
+/Sistema de Control de Vuelos/Ventana controlador/build/

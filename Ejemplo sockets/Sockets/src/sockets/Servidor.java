@@ -26,7 +26,7 @@ public class Servidor {
            
            entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
            String mensaje = entrada.readLine();
-           System.out.println(mensaje);
+           System.out.println("lo que recibi: "+mensaje);
            salida = new DataOutputStream(socket.getOutputStream());
            salida.writeUTF("Adios Mundo");
            socket.close();

@@ -17,6 +17,7 @@ public class Cliente {
     int puerto = 9000;
     String ip = "127.0.0.1";
     BufferedReader entrada, teclado;
+    DataInputStream entrada2;
     PrintStream salida;
     public void iniciar(){
        try{
@@ -28,6 +29,10 @@ public class Cliente {
            salida.println("ESTO FUE LO QUE ENVIE: " + tec);
            String msg = entrada.readLine();
            System.out.println("ESTO FUE LO QUE RECIBI: " + msg);
+//           System.out.println("emm");
+//           entrada2 = new DataInputStream(cliente.getInputStream());
+//           System.out.println("otra forma de leer: "+entrada2.readUTF());
+//           entrada2.close();
            entrada.close();
            salida.close();
            teclado.close();
