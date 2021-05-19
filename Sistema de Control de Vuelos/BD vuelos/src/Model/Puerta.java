@@ -3,32 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package threads;
+package Model;
 
 /**
  *
  * @author Meih55
  */
-public class Pista implements Comparable<Pista>{
+public class Puerta implements Comparable<Puerta>{
     private int numero;
     private int estado;
-    private String tamano;
     
-    public Pista(int num, int es, String tam){
-        this.tamano=tam;
+    public Puerta(int num, int es){
         this.numero=num;
         this.estado=es;
     }
 
     @Override
     public String toString() {
-        return "Pista{" + "numero=" + numero + ", estado=" + estado + ", tamano=" + tamano + '}';
+        return "Puerta{" + "numero=" + numero + ", estado=" + estado + '}';
     }
 
-
-
     @Override
-    public int compareTo(Pista p) {
+    public int compareTo(Puerta p) {
         if(p.estado==estado){
             return 0;
         }

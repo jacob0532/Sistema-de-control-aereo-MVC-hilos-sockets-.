@@ -5,6 +5,11 @@
  */
 package threads;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  *
  * @author Meih55
@@ -25,14 +30,16 @@ public class Threads{
 //            obj.start();
 //        }
         Threads thread=new Threads();
+       
+    
+        thread.aeropuerto.sortVuelos();
         thread.aeropuerto.printVuelos();
         System.out.println("-------------------------------------------------------------------------\n");
-        thread.aeropuerto.initPistas();
-        thread.aeropuerto.initPuertas();
         thread.aeropuerto.printPistas();
         System.out.println("-------------------------------------------------------------------------\n");
         thread.aeropuerto.printPuertas();
         System.out.println("-------------------------------------------------------------------------\n");
+
         
     }
     
