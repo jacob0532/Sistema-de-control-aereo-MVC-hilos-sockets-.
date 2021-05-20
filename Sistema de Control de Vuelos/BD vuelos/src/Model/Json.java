@@ -57,8 +57,12 @@ public class Json
                 aeropuerto.pistas.add(laPista);
             }
             
+            String [] puertas= new String[]{"Pequeno","Mediano","Grande"};
+            for(int i=0;i<3;i++){
+                Puerta laPuerta=new Puerta(i,0,pistas[i]);
+                aeropuerto.puertas.add(laPuerta);
+            }
             
-
            
             
  
