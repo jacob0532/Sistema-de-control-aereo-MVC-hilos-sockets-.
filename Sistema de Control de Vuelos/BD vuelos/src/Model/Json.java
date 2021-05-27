@@ -30,7 +30,7 @@ public class Json
     public static void leerJSON(Aeropuerto aeropuerto){
         JSONParser jsonParser = new JSONParser();
        
-        try (FileReader reader = new FileReader("vuelosInfo.json"))
+        try (FileReader reader = new FileReader("../vuelosInfo.json"))
         {
             Object obj = jsonParser.parse(reader); //leer el archivo
             JSONObject jsonObj = (JSONObject) obj;

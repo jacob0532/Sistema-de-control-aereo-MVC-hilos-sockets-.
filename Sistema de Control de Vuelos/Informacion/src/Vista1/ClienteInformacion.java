@@ -5,10 +5,14 @@
  */
 package Vista1;
 
+import java.awt.Color;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import static java.lang.Thread.sleep;
 import java.net.Socket;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -26,6 +30,7 @@ public class ClienteInformacion extends javax.swing.JFrame implements Runnable{
     private String mensaje = "";
     public ClienteInformacion() {
         initComponents();
+        rellenarPanel();
         try {
             cliente = new Socket(host,puerto);
             in = new DataInputStream(cliente.getInputStream());
@@ -45,9 +50,12 @@ public class ClienteInformacion extends javax.swing.JFrame implements Runnable{
                 if ("inicio".equals(mensaje)) {
                     this.enviarMsg("hola");
                 }
-                if ("hola".equals(mensaje)) {
+                if ("adios".equals(mensaje)) {
                     this.enviarMsg("Como estas?"); 
                 }
+                mostrarInformacion();
+                panelInformacion.updateUI();
+                sleep(1000);
                 
             }
         }catch(Exception e){
@@ -63,7 +71,29 @@ public class ClienteInformacion extends javax.swing.JFrame implements Runnable{
             e.printStackTrace();
         }
     }
-
+    public void rellenarPanel(){
+        for (int i = 0; i < 20; i++) {
+            JLabel var = new JLabel();
+            var.setBackground(Color.YELLOW);
+            var.setText(String.valueOf(i));
+            var.setOpaque(true);
+            var.setBounds(10, 70*i+10, 820, 50);
+            panelInformacion.add(var);
+        }
+    }
+    public void mostrarInformacion(){
+        for (int i = 0; i < 20; i++) {
+            if(panelInformacion.getComponent(i).getY()+10>500){
+                panelInformacion.getComponent(i).setBounds(10,10, 820, 50);  
+            }
+            else{
+                panelInformacion.getComponent(i).setBounds(10,panelInformacion.getComponent(i).getY()+70, 820, 50);  
+            }
+                     
+        }
+    
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,18 +103,22 @@ public class ClienteInformacion extends javax.swing.JFrame implements Runnable{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        panelInformacion = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 600));
+        jPanel1.setLayout(null);
+
+        panelInformacion.setBackground(new java.awt.Color(255, 153, 0));
+        panelInformacion.setPreferredSize(new java.awt.Dimension(500, 500));
+        panelInformacion.setLayout(null);
+        jPanel1.add(panelInformacion);
+        panelInformacion.setBounds(80, 60, 840, 470);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,5 +133,7 @@ public class ClienteInformacion extends javax.swing.JFrame implements Runnable{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panelInformacion;
     // End of variables declaration//GEN-END:variables
 }
