@@ -269,14 +269,14 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
             char index = string.charAt(string.length() - 1);
             icon = createIcon("/Imagenes/rojo.png", 100, 100);
             buttons[Character.getNumericValue(index)].setIcon(icon);
-            System.out.println("Ragedog \n");
+            //System.out.println("Ragedog \n");
             contadorAterrizaje.setForeground(Color.red);
 
         } else if (e.getActionCommand().equals("puerta0")) {
             char index = string.charAt(string.length() - 1);
             icon = createIcon("/Imagenes/azul.png", 100, 100);
             buttons[Character.getNumericValue(index) + 3].setIcon(icon);
-            System.out.println("Ragedog \n");
+            //System.out.println("Ragedog \n");
             contadorDesembarque.setForeground(Color.blue);
         }
     }
