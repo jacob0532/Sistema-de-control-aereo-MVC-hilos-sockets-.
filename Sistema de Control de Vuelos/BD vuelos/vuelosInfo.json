@@ -4,167 +4,196 @@
             "nombre":"Airbus 319",
             "tipo":"Carga",
             "estado":"Taxi",
-	    "tamano":"Grande",
-	    "horas":"05", 
-	    "minutos":"58"
+            "tamano":"Grande",
+            "horas":"05", 
+            "minutos":"58"
         },
         {   
             "nombre":"Boeing 737",
             "tipo":"Carga",
             "estado":"Taxi",
-	    "tamano":"Grande",
-	    "horas":"21", 
-	    "minutos":"55"
-	 
+            "tamano":"Grande",
+            "horas":"21", 
+            "minutos":"55"
         },
         {
             "nombre":"Antonov 225 Mriya",
             "tipo":"Carga",
             "estado":"Taxi",
-	    "tamano":"Grande",
-	    "horas":"13", 
-	    "minutos":"25"
-	
+            "tamano":"Grande",
+            "horas":"13", 
+            "minutos":"25"	
         },
         {
             "nombre":"Boeing 747 F Freighter",
             "tipo":"Carga",
             "estado":"Taxi",
-	    "tamano":"Grande",
-	    "horas":"15", 
-	    "minutos":"54"
-	 
+            "tamano":"Grande",
+            "horas":"15", 
+            "minutos":"54"        
         },
         {
             "nombre":"Airbus 300-600 ST",
             "tipo":"Carga",
             "estado":"Taxi",
-	    "tamano":"Grande",
-	    "horas":"05", 
-	    "minutos":"08"
-       
+            "tamano":"Grande",
+            "horas":"05", 
+            "minutos":"08"       
         },
         {
             "nombre":"Boeing 747-400 ERF",
             "tipo":"Carga",
             "estado":"Taxi",
-   	    "tamano":"Grande",
-	    "horas":"02", 
-	    "minutos":"21"
-	
+            "tamano":"Grande",
+            "horas":"02", 
+            "minutos":"21"	
         },
         {
             "nombre":"HondaJet Elite",
             "tipo":"Privado",
             "estado":"Taxi",
-	    "tamano":"Especial",
-	    "horas":"12", 
-	    "minutos":"49"
+            "tamano":"Especial",
+            "horas":"12", 
+            "minutos":"49"
         },
         {
             "nombre":"Cessna Citation CJ2",
             "tipo":"Privado",
             "estado":"Taxi",
-	    "tamano":"Especial",
-	    "horas":"19", 
-	    "minutos":"29"
+            "tamano":"Especial",
+            "horas":"19", 
+            "minutos":"29"
         },
         {
             "nombre":"Embraer Phenom 300",
             "tipo":"Privado",
             "estado":"Taxi",
-	    "tamano":"Especial",
-	    "horas":"09", 
-	    "minutos":"57"
+            "tamano":"Especial",
+            "horas":"09", 
+            "minutos":"57"
         },
         {
             "nombre":"Gulfstream G150",
             "tipo":"Privado",
             "estado":"Taxi",
-	    "tamano":"Especial",
-	    "horas":"17", 
-	    "minutos":"46"
+            "tamano":"Especial",
+            "horas":"17", 
+            "minutos":"46"
         },
         {
             "nombre":"Cessna Citation Sovereign",
             "tipo":"Privado",
             "estado":"Taxi",
-	    "tamano":"Especial",
-	    "horas":"01", 
-	    "minutos":"36"
+            "tamano":"Especial",
+            "horas":"01", 
+            "minutos":"36"
         },
         {
             "nombre":"Bombardier Challenger 605",
             "tipo":"Privado",
             "estado":"Taxi",
-  	    "tamano":"Especial",
-	    "horas":"07", 
-	    "minutos":"53"
+  	        "tamano":"Especial",
+	        "horas":"07", 
+	        "minutos":"53"
         },
         {
             "nombre":"Airbus ACJ320",
             "tipo":"Privado",
             "estado":"Taxi",
-	    "tamano":"Especial",
-	    "horas":"05", 
-	    "minutos":"04"
+	        "tamano":"Especial",
+	        "horas":"05", 
+	        "minutos":"04"
         },
         {
             "nombre":"Boeing 777",
             "tipo":"Pasajero",
             "estado":"Taxi",
-	    "tamano":"Mediano",
-	    "horas":"02", 
-	    "minutos":"01"
+	        "tamano":"Mediano",
+	        "horas":"02", 
+	        "minutos":"01"
         },
         {
             "nombre":"Airbus A220",
             "tipo":"Pasajero",
             "estado":"Taxi",
-	    "tamano":"Mediano",
-	    "horas":"08", 
-	    "minutos":"12"
+	        "tamano":"Mediano",
+	        "horas":"08", 
+	        "minutos":"12"
         },
         {
             "nombre":"Boeing 787 Dreamliner",
             "tipo":"Pasajero",
             "estado":"Taxi",
-	    "tamano":"Mediano",
-	    "horas":"23", 
-	    "minutos":"36"
+	        "tamano":"Mediano",
+	        "horas":"23", 
+	        "minutos":"36"
         },
         {
             "nombre":"Comac C919",
             "tipo":"Pasajero",
             "estado":"Taxi",
-	    "tamano":"Mediano",
-	    "horas":"14", 
-	    "minutos":"34"
+	        "tamano":"Mediano",
+	        "horas":"14", 
+	        "minutos":"34"
         },
         {
             "nombre":"Mitsubishi SpaceJet",
             "tipo":"Pasajero",
             "estado":"Taxi",
-	    "tamano":"Mediano",
-	    "horas":"01", 
-	    "minutos":"24"
+	        "tamano":"Mediano",
+	        "horas":"01", 
+	        "minutos":"24"
         },
         {
             "nombre":"Ilyushin II-96",
             "tipo":"Pasajero",
             "estado":"Taxi",
-	    "tamano":"Mediano",
-	    "horas":"22", 
-	    "minutos":"49"
+	        "tamano":"Mediano",
+	        "horas":"22", 
+	        "minutos":"49"
         },
         {
             "nombre":"Airbus A350 XWB",
             "tipo":"Pasajero",
             "estado":"Taxi",
-	    "tamano":"Mediano",
-	    "horas":"03", 
-	    "minutos":"40"
+	        "tamano":"Mediano",
+	        "horas":"03", 
+	        "minutos":"40"
         }
 
+    ],
+    "Puerta":[
+        {
+            "numero":1,
+            "estado":0,
+            "tamano":"Pequeno"
+        },
+        {
+            "numero":2,
+            "estado":0,
+            "tamano":"Mediano"
+        },
+        {
+            "numero":3,
+            "estado":0,
+            "tamano":"Grande"
+        }
+    ],
+    "Pista":[
+        {
+            "numero":1,
+            "estado":0,
+            "tamano":"Pequeno"
+        },
+        {
+            "numero":2,
+            "estado":0,
+            "tamano":"Mediano"
+        },
+        {
+            "numero":3,
+            "estado":0,
+            "tamano":"Grande"
+        }
     ]
 }
