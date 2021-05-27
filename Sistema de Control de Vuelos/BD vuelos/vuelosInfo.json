@@ -15,7 +15,6 @@
 	    "tamano":"Grande",
 	    "horas":"21", 
 	    "minutos":"55"
-	 
         },
         {
             "nombre":"Antonov 225 Mriya",
@@ -24,11 +23,11 @@
 	    "tamano":"Grande",
 	    "horas":"13", 
 	    "minutos":"25"
-	
         },
         {
             "nombre":"Boeing 747 F Freighter",
             "tipo":"Carga",
+
             "estado":"a tiempo",
 	    "tamano":"Grande",
 	    "horas":"15", 
@@ -42,7 +41,6 @@
 	    "tamano":"Grande",
 	    "horas":"05", 
 	    "minutos":"08"
-       
         },
         {
             "nombre":"Boeing 747-400 ERF",
@@ -51,7 +49,6 @@
    	    "tamano":"Grande",
 	    "horas":"02", 
 	    "minutos":"21"
-	
         },
         {
             "nombre":"HondaJet Elite",
@@ -76,6 +73,7 @@
 	    "tamano":"Especial",
 	    "horas":"09", 
 	    "minutos":"57"
+
         },
         {
             "nombre":"Gulfstream G150",
@@ -84,6 +82,7 @@
 	    "tamano":"Especial",
 	    "horas":"17", 
 	    "minutos":"46"
+
         },
         {
             "nombre":"Cessna Citation Sovereign",
@@ -92,6 +91,7 @@
 	    "tamano":"Especial",
 	    "horas":"01", 
 	    "minutos":"36"
+
         },
         {
             "nombre":"Bombardier Challenger 605",
@@ -100,6 +100,7 @@
   	    "tamano":"Especial",
 	    "horas":"07", 
 	    "minutos":"53"
+
         },
         {
             "nombre":"Airbus ACJ320",
@@ -108,6 +109,7 @@
 	    "tamano":"Especial",
 	    "horas":"05", 
 	    "minutos":"04"
+
         },
         {
             "nombre":"Boeing 777",
@@ -116,6 +118,7 @@
 	    "tamano":"Mediano",
 	    "horas":"02", 
 	    "minutos":"01"
+
         },
         {
             "nombre":"Airbus A220",
@@ -124,6 +127,7 @@
 	    "tamano":"Mediano",
 	    "horas":"08", 
 	    "minutos":"12"
+
         },
         {
             "nombre":"Boeing 787 Dreamliner",
@@ -132,6 +136,7 @@
 	    "tamano":"Mediano",
 	    "horas":"23", 
 	    "minutos":"36"
+
         },
         {
             "nombre":"Comac C919",
@@ -140,14 +145,17 @@
 	    "tamano":"Mediano",
 	    "horas":"14", 
 	    "minutos":"34"
+
         },
         {
             "nombre":"Mitsubishi SpaceJet",
             "tipo":"Pasajero",
+
             "estado":"a tiempo",
 	    "tamano":"Mediano",
 	    "horas":"01", 
 	    "minutos":"24"
+
         },
         {
             "nombre":"Ilyushin II-96",
@@ -156,6 +164,7 @@
 	    "tamano":"Mediano",
 	    "horas":"22", 
 	    "minutos":"49"
+
         },
         {
             "nombre":"Airbus A350 XWB",
@@ -164,7 +173,42 @@
 	    "tamano":"Mediano",
 	    "horas":"03", 
 	    "minutos":"40"
+
         }
 
+    ],
+    "Puerta":[
+        {
+            "numero":1,
+            "estado":0,
+            "tamano":"Pequeno"
+        },
+        {
+            "numero":2,
+            "estado":0,
+            "tamano":"Mediano"
+        },
+        {
+            "numero":3,
+            "estado":0,
+            "tamano":"Grande"
+        }
+    ],
+    "Pista":[
+        {
+            "numero":1,
+            "estado":0,
+            "tamano":"Pequeno"
+        },
+        {
+            "numero":2,
+            "estado":0,
+            "tamano":"Mediano"
+        },
+        {
+            "numero":3,
+            "estado":0,
+            "tamano":"Grande"
+        }
     ]
 }

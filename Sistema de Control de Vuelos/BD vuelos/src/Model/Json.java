@@ -35,10 +35,13 @@ public class Json
             Object obj = jsonParser.parse(reader); //leer el archivo
             JSONObject jsonObj = (JSONObject) obj;
             JSONArray avion = (JSONArray) jsonObj.get("Avion");
+            JSONArray puerta= (JSONArray)jsonObj.get("Puerta");
+            JSONArray pista= (JSONArray)jsonObj.get("Pista");
            
             
             String nombre, tipo, estado,tamano,tiempo;
-            
+            int numero,es;
+            String tam;
  
             for(int i=0;i<20;i++){
                 JSONObject jsonObj1 = (JSONObject) avion.get(i);
@@ -51,15 +54,23 @@ public class Json
                 aeropuerto.vuelos.add(elVuelo);
             }
             
-            String [] pistas= new String[]{"Pequeno","Mediano","Grande"};
+            //String [] pistas= new String[]{"Pequeno","Mediano","Grande"};
             for(int i=0;i<3;i++){
-                Pista laPista=new Pista(i,0,pistas[i]);
+                JSONObject jsonObj3 = (JSONObject) puerta.get(i);
+                numero= Integer.parseInt(jsonObj3.get("numero").toString());
+                es= Integer.parseInt(jsonObj3.get("estado").toString());
+                tam= jsonObj3.get("tamano").toString();
+                Pista laPista=new Pista(numero,es,tam);
                 aeropuerto.pistas.add(laPista);
             }
             
-            String [] puertas= new String[]{"Pequeno","Mediano","Grande"};
+            
             for(int i=0;i<3;i++){
-                Puerta laPuerta=new Puerta(i,0,pistas[i]);
+                JSONObject jsonObj2 = (JSONObject) puerta.get(i);
+                numero= Integer.parseInt(jsonObj2.get("numero").toString());
+                es= Integer.parseInt(jsonObj2.get("estado").toString());
+                tam= jsonObj2.get("tamano").toString();
+                Puerta laPuerta=new Puerta(numero,es,tam);
                 aeropuerto.puertas.add(laPuerta);
             }
             

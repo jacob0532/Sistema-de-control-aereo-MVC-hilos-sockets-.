@@ -25,7 +25,7 @@ public class Aeropuerto {
 
     public void printPistas(){
         for(int i=0;i<pistas.size();i++){
-            System.out.println("\n Pista "+i+" : "+pistas.get(i).toString());
+            System.out.println("\n "+pistas.get(i).toString());
         }
     }
 
@@ -35,7 +35,7 @@ public class Aeropuerto {
     
     public void printPuertas(){
         for(int i=0;i<puertas.size();i++){
-            System.out.println("\n Puerta "+i+" : "+puertas.get(i).toString());
+            System.out.println("\n "+puertas.get(i).toString());
         }
     }
     
