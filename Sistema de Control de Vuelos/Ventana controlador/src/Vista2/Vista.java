@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Vista2;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -34,9 +34,19 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
      */
     public Vista() {
         super("Ventana controlador");
-        this.setPreferredSize(new Dimension(1000, 950));
+        setPreferredSize(new Dimension(820, 820));
         initComponents();
-        panelPrincipal.setPreferredSize(new Dimension(3500, 3500));
+        setLocationRelativeTo(null);
+        panelPrincipal.setPreferredSize(new Dimension(780,750));
+        panelPrincipal.setOpaque(true);
+        panelPrincipal2=new JScrollPane();
+        panelPrincipal2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        panelPrincipal2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        panelPrincipal2.setBounds(0, 0, 805, 780);
+        panelPrincipal2.setViewportView(panelPrincipal);
+        panelPrincipal.setLayout(null);
+        this.add(panelPrincipal2);
+        this.setResizable(false);
         scrollPanel();
         displayLabels();
         displayLabels2();
@@ -70,23 +80,21 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void displayLabels() {
-        int ancho = 150;
-        int largo = 130;
+        //int ancho = 150;
+        //int largo = 130;
+        int ancho=110;
+        int largo=90;
         //int x=20;
         //int y=60;
         int x = 0;
@@ -97,8 +105,11 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
             button = new JButton();
             button.setBackground(new Color(245, 129, 28));
             button.setBounds(x, y, largo, ancho);
-            x += 126;
-            ancho += 50;
+            //x += 126;
+            //ancho += 50;
+            
+            x+=86;
+            ancho+=50;
             button.addActionListener(this);
             buttons[i] = button;
             button.setActionCommand("pista" + i);
@@ -108,31 +119,32 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
 
         label = new JLabel("Requiere aterrizar:");
         label.setBounds(30, 200, 500, 200);
-        label.setFont(new Font("Arial", Font.BOLD, 30));
+        label.setFont(new Font("Arial", Font.BOLD, 15));
         label.setForeground(new Color(0, 0, 0));
         panelPrincipal.add(label);
 
         label = new JLabel("Requiere desembarcar:");
-        label.setBounds(30, 400, 500, 200);
-        label.setFont(new Font("Arial", Font.BOLD, 30));
+        label.setBounds(30, 350, 500, 200);
+        label.setFont(new Font("Arial", Font.BOLD, 15));
         label.setForeground(new Color(0, 0, 0));
         panelPrincipal.add(label);
 
         label = new JLabel("Desembarcando:");
-        label.setBounds(30, 600, 500, 200);
-        label.setFont(new Font("Arial", Font.BOLD, 30));
+        label.setBounds(30, 500, 500, 200);
+        label.setFont(new Font("Arial", Font.BOLD, 15));
         label.setForeground(new Color(0, 0, 0));
         panelPrincipal.add(label);
         
         contadorAterrizaje = new JLabel("10");
         contadorAterrizaje.setFont(new Font("Arial", Font.BOLD, 20));
-        contadorAterrizaje.setBounds(50, 150, 50, 50);
+        contadorAterrizaje.setBounds(35, 110, 50, 50);
         contadorAterrizaje.setForeground(new Color(214,217,223));
         panelPrincipal.add(contadorAterrizaje);
         
+        
         contadorDesembarque = new JLabel("10");
         contadorDesembarque.setFont(new Font("Arial", Font.BOLD, 20));
-        contadorDesembarque.setBounds(800, 300, 50, 50);
+        contadorDesembarque.setBounds(637, 300, 50, 50);
         contadorDesembarque.setForeground(new Color(214,217,223));
         panelPrincipal.add(contadorDesembarque);
         
@@ -145,24 +157,32 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
     }
 
     private void displayLabels2() {
-        int ancho = 130;
-        int largo = 150;
-        int x = 835;
-        int y = 300;
+//        int ancho = 130;
+//        int largo = 150;
+        
+        int ancho = 90;
+        int largo = 110;
+        //int x=875;
+        //int y=300;
+        int x=675;
+        int y=300;
 
         for (int i = 0; i < 3; i++) {
             button = new JButton();
             button.setBackground(new Color(1, 173, 216));
             button.setBounds(x, y, largo, ancho);
+//            x -= 50;
+//            y += 126;
+//            largo += 50;
             x -= 50;
-            y += 126;
+            y += 86;
             largo += 50;
             button.addActionListener(this);
             buttons[i + 3] = button;
             button.setActionCommand("puerta" + i);
             panelPrincipal.add(button);
 
-            panelPrincipal.add(button);
+            //panelPrincipal.add(button);
         }
 
     }
@@ -188,7 +208,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
         panelAterrizaje.setBackground(new Color(0, 0, 255));
         JScrollPane scrollPane1 = new JScrollPane();
         scrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane1.setBounds(10, 730, 500, 150);
+        scrollPane1.setBounds(10, 630, 400, 100);
         panelAterrizaje.setPreferredSize(new Dimension(200, 0));
         scrollPane1.setViewportView(panelAterrizaje);
         panelPrincipal.add(scrollPane1);
@@ -199,7 +219,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
         panelTaxi.setBackground(new Color(0, 255, 0));
         JScrollPane scrollPane2 = new JScrollPane();
         scrollPane2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane2.setBounds(10, 530, 500, 150);
+        scrollPane2.setBounds(10, 480, 400, 100);
         panelTaxi.setPreferredSize(new Dimension(200, 0));
         scrollPane2.setViewportView(panelTaxi);
         panelPrincipal.add(scrollPane2);
@@ -210,13 +230,16 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
         panelDesembarque.setBackground(new Color(255, 0, 0));
         JScrollPane scrollPane3 = new JScrollPane();
         scrollPane3.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane3.setBounds(10, 330, 500, 150);
+        scrollPane3.setBounds(10, 330, 400, 100);
         panelDesembarque.setPreferredSize(new Dimension(200, 0));
         scrollPane3.setViewportView(panelDesembarque);
         panelPrincipal.add(scrollPane3);
         panelDesembarque.setLayout(null);
+        
     }
 
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -247,7 +270,7 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vista().setVisible(true);
+               new Vista().setVisible(true);
             }
         });
     }
@@ -261,23 +284,31 @@ public class Vista extends javax.swing.JFrame implements ActionListener {
     private JLabel contadorAterrizaje;
     private JLabel contadorDesembarque;
     private JLabel pistaPuerta;
+    private JButton button1;
+    private JScrollPane panelPrincipal2;
 
     @Override
     public void actionPerformed(ActionEvent e) {
         String string = e.getActionCommand();
-        if (e.getActionCommand().equals("pista0")) {
-            char index = string.charAt(string.length() - 1);
-            icon = createIcon("/Imagenes/rojo.png", 100, 100);
-            buttons[Character.getNumericValue(index)].setIcon(icon);
-            //System.out.println("Ragedog \n");
-            contadorAterrizaje.setForeground(Color.red);
-
-        } else if (e.getActionCommand().equals("puerta0")) {
-            char index = string.charAt(string.length() - 1);
-            icon = createIcon("/Imagenes/azul.png", 100, 100);
-            buttons[Character.getNumericValue(index) + 3].setIcon(icon);
-            //System.out.println("Ragedog \n");
-            contadorDesembarque.setForeground(Color.blue);
+        for(int i=0;i<3;i++){
+            if (string.equals("pista"+i)) {
+                char index = string.charAt(string.length() - 1);
+                icon = createIcon("/Imagenes/rojo.png", 70, 70);
+                buttons[Character.getNumericValue(index)].setIcon(icon);
+                contadorAterrizaje.setForeground(Color.red);
+            }
+        
         }
+                
+        for(int i=0;i<3;i++){
+            if (string.equals("puerta"+i)) {
+                char index = string.charAt(string.length() - 1);
+                icon = createIcon("/Imagenes/azul.png", 70, 70);
+                buttons[Character.getNumericValue(index) + 3].setIcon(icon);
+                //System.out.println("Ragedog \n");
+                contadorDesembarque.setForeground(Color.blue);
+            }
+        }
+
     }
 }
