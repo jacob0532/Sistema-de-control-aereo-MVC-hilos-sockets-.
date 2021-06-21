@@ -14,33 +14,43 @@ import java.util.Collections;
  */
 public class Aeropuerto {
     public ArrayList<Vuelo> vuelos=new ArrayList<>();
-    public ArrayList<Puerta> puertas=new ArrayList<>();
-    public ArrayList<Pista> pistas=new ArrayList<>();
+    
+    
 
-    public void printVuelos(){
+    public String getVuelos(){
+        String var="";
         for(int i=0;i<vuelos.size();i++){
-            System.out.println("\n Vuelo "+i+" : "+vuelos.get(i).toString());
+            var+="\n Vuelo "+i+" : "+vuelos.get(i).toString();
         }
+        return var;
     }
 
-    public void printPistas(){
-        for(int i=0;i<pistas.size();i++){
-            System.out.println("\n "+pistas.get(i).toString());
-        }
-    }
 
     public void setVuelos(ArrayList<Vuelo> vuelos) {
         this.vuelos = vuelos;
     }
     
-    public void printPuertas(){
-        for(int i=0;i<puertas.size();i++){
-            System.out.println("\n "+puertas.get(i).toString());
-        }
-    }
+    
     
     public void sortVuelos(){
        Collections.sort(vuelos);
     }
     
+    public boolean notificarVuelo(String relojTiempo){
+        for (int i = 0; i < vuelos.size(); i++) {
+            if(vuelos.get(i).tiempo.equals(relojTiempo)){
+                return true; //requiere aterrizar crear lista de aviones
+            } 
+        }
+        return false; //ningun avion requiere aterrizar
+    }
+    public ArrayList<Vuelo> enListarVuelos(String relojTiempo){
+        ArrayList<Vuelo> lista = new ArrayList<>();
+        for (int i = 0; i < vuelos.size(); i++) {
+            if(vuelos.get(i).tiempo.equals(relojTiempo)){
+                lista.add(vuelos.get(i));
+            } 
+        }
+        return lista; 
+    }
 }

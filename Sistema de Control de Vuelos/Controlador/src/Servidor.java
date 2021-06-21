@@ -1,6 +1,7 @@
 
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Servidor {
@@ -9,7 +10,6 @@ public class Servidor {
     private final int noConexiones = 20;
     //Creamos una lista de sockets, donde guardaremos los sockets que se vayan conectando
     private LinkedList<Socket> usuarios = new LinkedList<Socket>();
-       
    //Funcion para que el servidor empieze a recibir conexiones de clientes
     public void escuchar(){
         try {
@@ -31,7 +31,7 @@ public class Servidor {
         }
         
     }
-    
+   
     //Funcion main para correr el servidor
     public static void main(String[] args) {
         Servidor servidor= new Servidor();

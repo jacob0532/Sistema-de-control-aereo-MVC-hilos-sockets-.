@@ -10,12 +10,17 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -40,18 +45,24 @@ public class ClienteControlador extends javax.swing.JFrame implements ActionList
     //Si estamos en nuestra misma maquina usamos localhost si no la ip de la maquina servidor
     private String host = "localhost";
     private String mensaje = "";
-    
+    TextArea panelAterrizaje = new TextArea();
+    TextArea panelTaxi = new TextArea();
+    TextArea panelInformacion = new TextArea();
+    boolean ejecutar = true;
+    ArrayList<String> listaAviones = new ArrayList<>();
+    ArrayList<String> listaAvionesDesembarque = new ArrayList<>();
+    ArrayList<String> listaAvionesPuerta = new ArrayList<>();
     public ClienteControlador() {
         super("Ventana controlador");
         this.setPreferredSize(new Dimension(820, 820));
         initComponents2();
         setLocationRelativeTo(null);
-        panelPrincipal.setPreferredSize(new Dimension(780,750));
+        panelPrincipal.setPreferredSize(new Dimension(800,800));
         panelPrincipal.setOpaque(true);
         panelPrincipal2=new JScrollPane();
         panelPrincipal2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         panelPrincipal2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        panelPrincipal2.setBounds(0, 0, 805, 780);
+        panelPrincipal2.setBounds(0, 0, 800, 750);
         panelPrincipal2.setViewportView(panelPrincipal);
         panelPrincipal.setLayout(null);
         this.add(panelPrincipal2);
@@ -72,17 +83,37 @@ public class ClienteControlador extends javax.swing.JFrame implements ActionList
     public void run() {
         try{
             //Ciclo infinito que escucha por mensajes del servidor y los muestra en el panel
-            while(true){
+
+            while(ejecutar){
                 this.setVisible(true);
                 mensaje = in.readUTF();
+                String[] listaMensaje = mensaje.split("-");
+                String[] aviones;
                 System.out.println(mensaje);
-                if ("inicio".equals(mensaje)) {
-                    this.enviarMsg("hola");
+                if ("01".equals(listaMensaje[0])) {
+                    panelAterrizaje.setText(panelAterrizaje.getText()+listaMensaje[1]);
+                    panelPrincipal.updateUI();
+                    this.enviarMsg("03-pistas libres?");
+                    aviones = listaMensaje[1].split(";");
+                    for (int i = 0; i < aviones.length; i++) {
+                        listaAviones.add(aviones[i]);
+                    } 
                 }
-                if ("hola".equals(mensaje)) {
-                    this.enviarMsg("Como estas?"); 
+                if("02".equals(listaMensaje[0])){
+                    panelAterrizaje.setText(panelAterrizaje.getText());
+                    panelPrincipal.updateUI();
+                    this.enviarMsg("00-inicio");
                 }
-                
+                if("04".equals(listaMensaje[0])){
+                    panelInformacion.setText(panelInformacion.getText()+listaMensaje[1]);
+                    panelPrincipal.updateUI();
+                    this.enviarMsg("00-inicio");
+                }
+                if("05".equals(listaMensaje[0])){
+                    panelInformacion.setText(panelInformacion.getText()+listaMensaje[1]);
+                    panelPrincipal.updateUI();
+                    this.enviarMsg("00-inicio");
+                }
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -110,7 +141,6 @@ public class ClienteControlador extends javax.swing.JFrame implements ActionList
         panelPrincipal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(835, 799));
 
         panelPrincipal.setPreferredSize(new java.awt.Dimension(835, 799));
 
@@ -215,30 +245,66 @@ public class ClienteControlador extends javax.swing.JFrame implements ActionList
         label.setForeground(new Color(0, 0, 0));
         panelPrincipal.add(label);
 
-        label = new JLabel("Desembarcando:");
+        label = new JLabel("Informacion del controlador:");
         label.setBounds(30, 500, 500, 200);
         label.setFont(new Font("Arial", Font.BOLD, 15));
         label.setForeground(new Color(0, 0, 0));
         panelPrincipal.add(label);
         
-        contadorAterrizaje = new JLabel("10");
-        contadorAterrizaje.setFont(new Font("Arial", Font.BOLD, 20));
-        contadorAterrizaje.setBounds(35, 110, 50, 50);
-        contadorAterrizaje.setForeground(new Color(242,242,242));
-        panelPrincipal.add(contadorAterrizaje);
+        contadorAterrizaje1 = new JLabel("10");
+        contadorAterrizaje1.setFont(new Font("Arial", Font.BOLD, 20));
+        contadorAterrizaje1.setBounds(35, 110, 50, 50);
+        contadorAterrizaje1.setForeground(new Color(242,242,242));
+        panelPrincipal.add(contadorAterrizaje1);
+        
+        contadorAterrizaje2 = new JLabel("10");
+        contadorAterrizaje2.setFont(new Font("Arial", Font.BOLD, 20));
+        contadorAterrizaje2.setBounds(121, 160, 50, 50);
+        contadorAterrizaje2.setForeground(new Color(242,242,242));
+        panelPrincipal.add(contadorAterrizaje2);
+        
+        contadorAterrizaje3 = new JLabel("10");
+        contadorAterrizaje3.setFont(new Font("Arial", Font.BOLD, 20));
+        contadorAterrizaje3.setBounds(207, 210, 50, 50);
+        contadorAterrizaje3.setForeground(new Color(242,242,242));
+        panelPrincipal.add(contadorAterrizaje3);
         
         
-        contadorDesembarque = new JLabel("10");
-        contadorDesembarque.setFont(new Font("Arial", Font.BOLD, 20));
-        contadorDesembarque.setBounds(637, 300, 50, 50);
-        contadorDesembarque.setForeground(new Color(242,242,242));
-        panelPrincipal.add(contadorDesembarque);
+        contadorDesembarque1 = new JLabel("10");
+        contadorDesembarque1.setFont(new Font("Arial", Font.BOLD, 20));
+        contadorDesembarque1.setBounds(637, 300, 50, 50);
+        contadorDesembarque1.setForeground(new Color(242,242,242));
+        panelPrincipal.add(contadorDesembarque1);
         
-        pistaPuerta = new JLabel("Traslado de la pista a la puerta: 10");
-        pistaPuerta.setFont(new Font("Arial", Font.BOLD, 20));
-        pistaPuerta.setBounds(400, 20, 400, 50);
-        pistaPuerta.setForeground(new Color(0,0,0));
-        panelPrincipal.add(pistaPuerta);
+        contadorDesembarque2 = new JLabel("10");
+        contadorDesembarque2.setFont(new Font("Arial", Font.BOLD, 20));
+        contadorDesembarque2.setBounds(600, 400, 50, 50);
+        contadorDesembarque2.setForeground(new Color(242,242,242));
+        panelPrincipal.add(contadorDesembarque2);
+        
+        contadorDesembarque3 = new JLabel("10");
+        contadorDesembarque3.setFont(new Font("Arial", Font.BOLD, 20));
+        contadorDesembarque3.setBounds(550, 500, 50, 50);
+        contadorDesembarque3.setForeground(new Color(242,242,242));
+        panelPrincipal.add(contadorDesembarque3);
+        
+        pistaPuertaPequeña = new JLabel("Traslado de la pista a la puerta (Pequeña):");
+        pistaPuertaPequeña.setFont(new Font("Arial", Font.BOLD, 20));
+        pistaPuertaPequeña.setBounds(300, 20, 600, 50);
+        pistaPuertaPequeña.setForeground(new Color(0,0,0));
+        panelPrincipal.add(pistaPuertaPequeña);
+        
+        pistaPuertaMediana = new JLabel("Traslado de la pista a la puerta (Mediana):");
+        pistaPuertaMediana.setFont(new Font("Arial", Font.BOLD, 20));
+        pistaPuertaMediana.setBounds(300, 40, 600, 50);
+        pistaPuertaMediana.setForeground(new Color(0,0,0));
+        panelPrincipal.add(pistaPuertaMediana);
+        
+        pistaPuertaGrande = new JLabel("Traslado de la pista a la puerta (Grande):");
+        pistaPuertaGrande.setFont(new Font("Arial", Font.BOLD, 20));
+        pistaPuertaGrande.setBounds(300, 60, 600, 50);
+        pistaPuertaGrande.setForeground(new Color(0,0,0));
+        panelPrincipal.add(pistaPuertaGrande);
 
     }
 
@@ -289,38 +355,29 @@ public class ClienteControlador extends javax.swing.JFrame implements ActionList
     }
 
     private void scrollPanel() {
-        JPanel panelAterrizaje = new JPanel();
-        panelAterrizaje.setOpaque(true);
-        panelAterrizaje.setBackground(new Color(0, 0, 255));
-        JScrollPane scrollPane1 = new JScrollPane();
-        scrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane1.setBounds(10, 630, 400, 100);
-        panelAterrizaje.setPreferredSize(new Dimension(200, 0));
-        scrollPane1.setViewportView(panelAterrizaje);
-        panelPrincipal.add(scrollPane1);
-        panelAterrizaje.setLayout(null);
+        panelAterrizaje.setVisible(true);
+        panelAterrizaje.setBackground(new Color(255, 0, 0));
+        panelAterrizaje.setBounds(10, 330, 500, 100);
+        panelAterrizaje.setEditable(false);
+        panelPrincipal.add(panelAterrizaje);
 
-        JPanel panelTaxi = new JPanel();
-        panelTaxi.setOpaque(true);
+
+        
+        panelTaxi.setVisible(true);
         panelTaxi.setBackground(new Color(0, 255, 0));
-        JScrollPane scrollPane2 = new JScrollPane();
-        scrollPane2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane2.setBounds(10, 480, 400, 100);
-        panelTaxi.setPreferredSize(new Dimension(200, 0));
-        scrollPane2.setViewportView(panelTaxi);
-        panelPrincipal.add(scrollPane2);
-        panelTaxi.setLayout(null);
+        panelTaxi.setBounds(10, 480, 500, 100);
+        panelTaxi.setEditable(false);
+        panelPrincipal.add(panelTaxi);
 
-        JPanel panelDesembarque = new JPanel();
-        panelDesembarque.setOpaque(true);
-        panelDesembarque.setBackground(new Color(255, 0, 0));
-        JScrollPane scrollPane3 = new JScrollPane();
-        scrollPane3.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane3.setBounds(10, 330, 400, 100);
-        panelDesembarque.setPreferredSize(new Dimension(200, 0));
-        scrollPane3.setViewportView(panelDesembarque);
-        panelPrincipal.add(scrollPane3);
-        panelDesembarque.setLayout(null);
+
+        
+        panelInformacion.setVisible(true);
+        panelInformacion.setForeground(Color.RED);
+        panelInformacion.setBackground(new Color(255, 255, 255));
+        panelInformacion.setBounds(10, 630, 500, 100);
+        panelInformacion.setEditable(false);
+        panelPrincipal.add(panelInformacion);
+
         
     }
     
@@ -333,14 +390,20 @@ public class ClienteControlador extends javax.swing.JFrame implements ActionList
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel panelPrincipal;
+    public javax.swing.JPanel panelPrincipal;
     // End of variables declaration//GEN-END:variables
     private ImageIcon icon;
     private JLabel label;
     private JButton button;
-    private JLabel contadorAterrizaje;
-    private JLabel contadorDesembarque;
-    private JLabel pistaPuerta;
+    public JLabel contadorAterrizaje1;
+    public JLabel contadorAterrizaje2;
+    public JLabel contadorAterrizaje3;
+    public JLabel contadorDesembarque1;
+    public JLabel contadorDesembarque2;
+    public JLabel contadorDesembarque3;
+    public JLabel pistaPuertaPequeña;
+    public JLabel pistaPuertaMediana;
+    public JLabel pistaPuertaGrande;
     private JButton button1;
     private JScrollPane panelPrincipal2;
     
@@ -349,25 +412,112 @@ public class ClienteControlador extends javax.swing.JFrame implements ActionList
      @Override
     public void actionPerformed(ActionEvent e) {
         String string = e.getActionCommand();
-        for(int i=0;i<3;i++){
-            if (string.equals("pista"+i)) {
-                char index = string.charAt(string.length() - 1);
-                icon = createIcon("/Imagenes/rojo.png", 70, 70);
-                buttons[Character.getNumericValue(index)].setIcon(icon);
-                contadorAterrizaje.setForeground(Color.red);
-            }
-        
+
+        if (string.equals("pista0")) {
+            this.enviarMsg("857-cambiarEstado");
+            sacarAviones();
+            char index = string.charAt(string.length() - 1);
+            icon = createIcon("/Imagenes/rojo.png", 70, 70);
+            buttons[Character.getNumericValue(index)].setIcon(icon);
+            buttons[Character.getNumericValue(index)].setEnabled(false);
+            contadorAterrizaje1.setForeground(Color.red);
+            this.enviarMsg("999-Pequeña");
+            Cronometro a = new Cronometro(pistaPuertaPequeña,"999-Pequeña",this,contadorAterrizaje1,panelPrincipal,buttons[Character.getNumericValue(index)]);
+            Thread hilo3 = new Thread(a);
+            hilo3.start();
+        }
+        if (string.equals("pista1")) {
+            this.enviarMsg("857-cambiarEstado");
+            sacarAviones();
+            char index = string.charAt(string.length() - 1);
+            icon = createIcon("/Imagenes/rojo.png", 70, 70);
+            buttons[Character.getNumericValue(index)].setIcon(icon);
+            buttons[Character.getNumericValue(index)].setEnabled(false);
+            contadorAterrizaje2.setForeground(Color.red);
+            this.enviarMsg("999-Mediana");
+            Cronometro a = new Cronometro(pistaPuertaMediana,"999-Mediana",this,contadorAterrizaje2,panelPrincipal,buttons[Character.getNumericValue(index)]);
+            Thread hilo3 = new Thread(a);
+            hilo3.start();
+        }
+        if (string.equals("pista2")) {
+            this.enviarMsg("857-cambiarEstado");
+            sacarAviones();
+            char index = string.charAt(string.length() - 1);
+            icon = createIcon("/Imagenes/rojo.png", 70, 70);
+            buttons[Character.getNumericValue(index)].setIcon(icon);
+            buttons[Character.getNumericValue(index)].setEnabled(false);
+            contadorAterrizaje3.setForeground(Color.red);
+            this.enviarMsg("999-Grande");
+            Cronometro a = new Cronometro(pistaPuertaGrande,"999-Grande",this,contadorAterrizaje3,panelPrincipal,buttons[Character.getNumericValue(index)]);
+            Thread hilo3 = new Thread(a);
+            hilo3.start();
+        }
+        if (string.equals("puerta0")) {
+            sacarAvionesTaxi();
+            this.enviarMsg("859-ESTADO = LLEGANDO PUERTA 0");
+            char index = string.charAt(string.length() - 1);
+            icon = createIcon("/Imagenes/azul.png", 70, 70);
+            buttons[Character.getNumericValue(index) + 3].setIcon(icon);
+            buttons[Character.getNumericValue(index) + 3].setEnabled(false);
+            contadorDesembarque1.setForeground(Color.blue);
+            this.enviarMsg("998-Pequeña");
+            Cronometro a = new Cronometro(null,"998-Pequeña",this,contadorDesembarque1,panelPrincipal,buttons[Character.getNumericValue(index)+3]);
+            Thread hilo3 = new Thread(a);
+            hilo3.start();
+        }
+        if (string.equals("puerta1")) {
+            sacarAvionesTaxi();
+            this.enviarMsg("859-ESTADO = LLEGANDO PUERTA 1");
+            char index = string.charAt(string.length() - 1);
+            icon = createIcon("/Imagenes/azul.png", 70, 70);
+            buttons[Character.getNumericValue(index) + 3].setIcon(icon);
+            buttons[Character.getNumericValue(index) + 3].setEnabled(false);
+            contadorDesembarque2.setForeground(Color.blue);
+            this.enviarMsg("998-Mediana");
+            Cronometro a = new Cronometro(null,"998-Mediana",this,contadorDesembarque2,panelPrincipal,buttons[Character.getNumericValue(index)+3]);
+            Thread hilo3 = new Thread(a);
+            hilo3.start();
+        }
+        if (string.equals("puerta2")) {
+            sacarAvionesTaxi();
+            this.enviarMsg("859-ESTADO = LLEGANDO PUERTA 2");
+            char index = string.charAt(string.length() - 1);
+            icon = createIcon("/Imagenes/azul.png", 70, 70);
+            buttons[Character.getNumericValue(index) + 3].setIcon(icon);
+            buttons[Character.getNumericValue(index) + 3].setEnabled(false);
+            contadorDesembarque3.setForeground(Color.blue);
+            this.enviarMsg("998-Grande");
+            Cronometro a = new Cronometro(null,"998-Grande",this,contadorDesembarque3,panelPrincipal,buttons[Character.getNumericValue(index)+3]);
+            Thread hilo3 = new Thread(a);
+            hilo3.start();
         }
                 
-        for(int i=0;i<3;i++){
-            if (string.equals("puerta"+i)) {
-                char index = string.charAt(string.length() - 1);
-                icon = createIcon("/Imagenes/azul.png", 70, 70);
-                buttons[Character.getNumericValue(index) + 3].setIcon(icon);
-                //System.out.println("Ragedog \n");
-                contadorDesembarque.setForeground(Color.blue);
-            }
+    }
+    public void sacarAviones(){
+        if (!listaAviones.isEmpty()) {
+            listaAvionesDesembarque.add(listaAviones.get(0));
+            listaAviones.remove(0);       
         }
-
+        actualizarPanelAterrizaje();
+    }
+    
+    public void sacarAvionesTaxi(){
+        String[] listaAvionesTaxi = panelTaxi.getText().split("\n");
+        String avionesTaxi = "";
+        for (int i = 1; i < listaAvionesTaxi.length; i++) {
+            avionesTaxi+=listaAvionesTaxi[i]+"\n";
+        }
+        panelTaxi.setText(avionesTaxi);
+        panelPrincipal.updateUI();
+    }
+    
+    public void actualizarPanelAterrizaje(){
+        String a = "";
+        for (int i = 0; i < listaAviones.size(); i++) {
+            a+=listaAviones.get(i);
+        }
+        panelAterrizaje.setText(a);
+        panelPrincipal.updateUI();
+        
     }
 }

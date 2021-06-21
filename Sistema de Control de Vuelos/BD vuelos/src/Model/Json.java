@@ -53,32 +53,6 @@ public class Json
                 Vuelo elVuelo= new Vuelo(nombre,estado,tipo,tamano,tiempo);
                 aeropuerto.vuelos.add(elVuelo);
             }
-            
-            //String [] pistas= new String[]{"Pequeno","Mediano","Grande"};
-            for(int i=0;i<3;i++){
-                JSONObject jsonObj3 = (JSONObject) puerta.get(i);
-                numero= Integer.parseInt(jsonObj3.get("numero").toString());
-                es= Integer.parseInt(jsonObj3.get("estado").toString());
-                tam= jsonObj3.get("tamano").toString();
-                Pista laPista=new Pista(numero,es,tam);
-                aeropuerto.pistas.add(laPista);
-            }
-            
-            
-            for(int i=0;i<3;i++){
-                JSONObject jsonObj2 = (JSONObject) puerta.get(i);
-                numero= Integer.parseInt(jsonObj2.get("numero").toString());
-                es= Integer.parseInt(jsonObj2.get("estado").toString());
-                tam= jsonObj2.get("tamano").toString();
-                Puerta laPuerta=new Puerta(numero,es,tam);
-                aeropuerto.puertas.add(laPuerta);
-            }
-            
-           
-            
- 
-         
-         
         } catch (Exception e) {
             e.toString();
         } 

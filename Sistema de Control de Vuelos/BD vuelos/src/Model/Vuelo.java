@@ -14,9 +14,8 @@ public class Vuelo implements java.lang.Comparable<Vuelo>{
     private String estado;
     private String tipo;
     private String tamano;
-    private String tiempo;
-    private Puerta puerta;
-    private Pista pista; 
+    public String tiempo;
+
 
     public String getTamano() {
         return tamano;
@@ -79,7 +78,7 @@ public class Vuelo implements java.lang.Comparable<Vuelo>{
     
     @Override
     public String toString() {
-        return "Vuelo{" + "nombre=" + nombre + ", estado=" + estado + ", tipo=" + tipo + ", tamano=" + tamano + ", tiempo=" + tiempo + ", puerta=" + puerta + ", pista=" + pista + '}';
+        return "Vuelo{" + "nombre=" + nombre + ", estado=" + estado + ", tipo=" + tipo + ", tamano=" + tamano + ", tiempo=" + tiempo + "}\n";
     }
 
     @Override

@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+
 
 /**
  *
  * @author Meih55
  */
-public class Puerta implements Comparable<Puerta>{
-    private int numero;
-    private int estado;
-    private String tamano;
+public class Puerta {
+    int numero;
+    int estado;
+    String tamano;
     
     public Puerta(int num, int es, String tam){
         this.numero=num;
@@ -25,18 +25,4 @@ public class Puerta implements Comparable<Puerta>{
         return "Puerta{" + "numero=" + numero + ", estado=" + estado + ", tamano=" + tamano + '}';
     }
 
-    
-
-    @Override
-    public int compareTo(Puerta p) {
-        if(p.estado==estado){
-            return 0;
-        }
-        else if(p.estado<estado){
-            return 1;
-        }
-        else{
-            return -1;
-        }
-    }
 }

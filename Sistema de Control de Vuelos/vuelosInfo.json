@@ -6,7 +6,7 @@
             "estado":"a tiempo",
 	    "tamano":"Grande",
 	    "horas":"05", 
-	    "minutos":"58"
+	    "minutos":"00"
         },
         {   
             "nombre":"Boeing 737",
@@ -14,7 +14,7 @@
             "estado":"a tiempo",
 	    "tamano":"Grande",
 	    "horas":"21", 
-	    "minutos":"55"
+	    "minutos":"00"
 	 
         },
         {
@@ -23,7 +23,7 @@
             "estado":"a tiempo",
 	    "tamano":"Grande",
 	    "horas":"13", 
-	    "minutos":"25"
+	    "minutos":"00"
 	
         },
         {
@@ -32,25 +32,25 @@
             "estado":"a tiempo",
 	    "tamano":"Grande",
 	    "horas":"15", 
-	    "minutos":"54"
+	    "minutos":"00"
 	 
         },
         {
-            "nombre":"Airbus 300-600 ST",
+            "nombre":"Airbus 600 ST",
             "tipo":"Carga",
             "estado":"a tiempo",
 	    "tamano":"Grande",
 	    "horas":"05", 
-	    "minutos":"08"
+	    "minutos":"00"
        
         },
         {
-            "nombre":"Boeing 747-400 ERF",
+            "nombre":"Boeing 747 ERF",
             "tipo":"Carga",
             "estado":"a tiempo",
    	    "tamano":"Grande",
 	    "horas":"02", 
-	    "minutos":"21"
+	    "minutos":"00"
 	
         },
         {
@@ -59,7 +59,7 @@
             "estado":"a tiempo",
 	    "tamano":"Especial",
 	    "horas":"12", 
-	    "minutos":"49"
+	    "minutos":"00"
         },
         {
             "nombre":"Cessna Citation CJ2",
@@ -67,7 +67,7 @@
             "estado":"a tiempo",
 	    "tamano":"Especial",
 	    "horas":"19", 
-	    "minutos":"29"
+	    "minutos":"00"
         },
         {
             "nombre":"Embraer Phenom 300",
@@ -75,7 +75,7 @@
             "estado":"a tiempo",
 	    "tamano":"Especial",
 	    "horas":"09", 
-	    "minutos":"57"
+	    "minutos":"00"
         },
         {
             "nombre":"Gulfstream G150",
@@ -83,7 +83,7 @@
             "estado":"a tiempo",
 	    "tamano":"Especial",
 	    "horas":"17", 
-	    "minutos":"46"
+	    "minutos":"00"
         },
         {
             "nombre":"Cessna Citation Sovereign",
@@ -91,7 +91,7 @@
             "estado":"a tiempo",
 	    "tamano":"Especial",
 	    "horas":"01", 
-	    "minutos":"36"
+	    "minutos":"00"
         },
         {
             "nombre":"Bombardier Challenger 605",
@@ -99,7 +99,7 @@
             "estado":"a tiempo",
   	    "tamano":"Especial",
 	    "horas":"07", 
-	    "minutos":"53"
+	    "minutos":"00"
         },
         {
             "nombre":"Airbus ACJ320",
@@ -107,7 +107,7 @@
             "estado":"a tiempo",
 	    "tamano":"Especial",
 	    "horas":"05", 
-	    "minutos":"04"
+	    "minutos":"00"
         },
         {
             "nombre":"Boeing 777",
@@ -115,7 +115,7 @@
             "estado":"a tiempo",
 	    "tamano":"Mediano",
 	    "horas":"02", 
-	    "minutos":"01"
+	    "minutos":"00"
         },
         {
             "nombre":"Airbus A220",
@@ -123,7 +123,7 @@
             "estado":"a tiempo",
 	    "tamano":"Mediano",
 	    "horas":"08", 
-	    "minutos":"12"
+	    "minutos":"00"
         },
         {
             "nombre":"Boeing 787 Dreamliner",
@@ -131,7 +131,7 @@
             "estado":"a tiempo",
 	    "tamano":"Mediano",
 	    "horas":"23", 
-	    "minutos":"36"
+	    "minutos":"00"
         },
         {
             "nombre":"Comac C919",
@@ -139,7 +139,7 @@
             "estado":"a tiempo",
 	    "tamano":"Mediano",
 	    "horas":"14", 
-	    "minutos":"34"
+	    "minutos":"00"
         },
         {
             "nombre":"Mitsubishi SpaceJet",
@@ -147,15 +147,15 @@
             "estado":"a tiempo",
 	    "tamano":"Mediano",
 	    "horas":"01", 
-	    "minutos":"24"
+	    "minutos":"00"
         },
         {
-            "nombre":"Ilyushin II-96",
+            "nombre":"Ilyushin II 96",
             "tipo":"Pasajero",
             "estado":"a tiempo",
 	    "tamano":"Mediano",
 	    "horas":"22", 
-	    "minutos":"49"
+	    "minutos":"00"
         },
         {
             "nombre":"Airbus A350 XWB",
@@ -163,7 +163,7 @@
             "estado":"a tiempo",
 	    "tamano":"Mediano",
 	    "horas":"03", 
-	    "minutos":"40"
+	    "minutos":"00"
         }
 
     ]

@@ -10,22 +10,19 @@ package Model;
  * @author yeico
  */
 public class Main {
-    private Aeropuerto aeropuerto=new Aeropuerto();
-   
-    public Main(){
-        Json.leerJSON(aeropuerto);
-    }
+
     
     public static void main(String[] args){
-        Main main= new Main();
-        main.aeropuerto.sortVuelos();
-        main.aeropuerto.printVuelos();
+        Aeropuerto aeropuerto = new Aeropuerto();
+        Json.leerJSON(aeropuerto);
+        aeropuerto.sortVuelos();
+        /*System.out.println(aeropuerto.getVuelos());
         System.out.println("-------------------------------------------------------------------------\n");
-        main.aeropuerto.printPistas();
+            System.out.println(aeropuerto.getPistas());
         System.out.println("-------------------------------------------------------------------------\n");
-        main.aeropuerto.printPuertas();
-        System.out.println("-------------------------------------------------------------------------\n");
-        ClienteVuelos cliente= new ClienteVuelos();
+        System.out.println(aeropuerto.getPuertas());
+        System.out.println("-------------------------------------------------------------------------\n");*/
+        ClienteVuelos cliente= new ClienteVuelos(aeropuerto);
         Thread hilo = new Thread(cliente);
         hilo.start();
     }
