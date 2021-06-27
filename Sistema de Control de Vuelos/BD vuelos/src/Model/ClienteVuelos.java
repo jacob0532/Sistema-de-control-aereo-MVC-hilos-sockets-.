@@ -96,7 +96,7 @@ public class ClienteVuelos implements Runnable{
                     }
                     //pistas y puertas lo maneje servidor y el ventana controlador le pide a el
                 }
-                TimeUnit.SECONDS.sleep(4);
+                TimeUnit.SECONDS.sleep(6);
                
                 
             }

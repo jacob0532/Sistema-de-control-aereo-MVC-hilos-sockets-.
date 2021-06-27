@@ -64,9 +64,7 @@ public class Cronometro implements Runnable{
             hilo4.start();
         }
         else{
-            System.out.println("paso");
             refClienteControlador.enviarMsg("860-cambiar estado");
-            System.out.println("nopaso");
         }
     }
     

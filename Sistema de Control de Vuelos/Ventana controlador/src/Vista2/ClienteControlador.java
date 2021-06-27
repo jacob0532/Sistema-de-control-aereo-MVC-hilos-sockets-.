@@ -89,7 +89,7 @@ public class ClienteControlador extends javax.swing.JFrame implements ActionList
                 mensaje = in.readUTF();
                 String[] listaMensaje = mensaje.split("-");
                 String[] aviones;
-                System.out.println(mensaje);
+                //System.out.println(mensaje);
                 if ("01".equals(listaMensaje[0])) {
                     panelAterrizaje.setText(panelAterrizaje.getText()+listaMensaje[1]);
                     panelPrincipal.updateUI();
@@ -239,7 +239,7 @@ public class ClienteControlador extends javax.swing.JFrame implements ActionList
         label.setForeground(new Color(0, 0, 0));
         panelPrincipal.add(label);
 
-        label = new JLabel("Requiere desembarcar:");
+        label = new JLabel("Modo Taxi:");
         label.setBounds(30, 350, 500, 200);
         label.setFont(new Font("Arial", Font.BOLD, 15));
         label.setForeground(new Color(0, 0, 0));
@@ -269,6 +269,17 @@ public class ClienteControlador extends javax.swing.JFrame implements ActionList
         contadorAterrizaje3.setForeground(new Color(242,242,242));
         panelPrincipal.add(contadorAterrizaje3);
         
+        JLabel tituloPuertas = new JLabel("Puertas");
+        tituloPuertas.setFont(new Font("Arial", Font.BOLD, 20));
+        tituloPuertas.setBounds(693, 250, 100, 50);
+        tituloPuertas.setForeground(new Color(0,0,0));
+        panelPrincipal.add(tituloPuertas);
+        
+        JLabel tituloPista = new JLabel("Pistas");
+        tituloPista.setFont(new Font("Arial", Font.BOLD, 20));
+        tituloPista.setBounds(260, 160, 100, 50);
+        tituloPista.setForeground(new Color(0,0,0));
+        panelPrincipal.add(tituloPista);
         
         contadorDesembarque1 = new JLabel("10");
         contadorDesembarque1.setFont(new Font("Arial", Font.BOLD, 20));
